@@ -173,6 +173,82 @@
     }
     .h-stat + .h-stat { border-left: 1px solid rgba(255,255,255,0.07); }
 
+    /* ── Where We Are Section ─────────────────────── */
+    .recap { background: var(--white); border-bottom: 1px solid var(--border); }
+    .recap-header { text-align: center; margin-bottom: 3.5rem; }
+    .recap-header h2 {
+      font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+      font-weight: 800; letter-spacing: -0.02em;
+      color: var(--black); margin-bottom: 0.7rem;
+    }
+    .recap-header p { color: var(--mid); font-size: 1.02rem; max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+    .recap-timeline {
+      position: relative; max-width: 760px; margin: 0 auto 4rem;
+    }
+    .recap-timeline::before {
+      content: ''; position: absolute; left: 18px; top: 8px; bottom: 8px;
+      width: 2px; background: linear-gradient(to bottom, var(--orange), rgba(245,130,31,0.1));
+      border-radius: 2px;
+    }
+    .rt-item {
+      display: flex; gap: 2rem; align-items: flex-start;
+      padding: 0 0 2.2rem 0; position: relative;
+    }
+    .rt-item:last-child { padding-bottom: 0; }
+    .rt-dot {
+      flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%;
+      background: var(--orange); display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 800; color: #fff; z-index: 1;
+      box-shadow: 0 0 0 4px rgba(245,130,31,0.12);
+    }
+    .rt-dot.done   { background: var(--orange); }
+    .rt-dot.active { background: var(--orange-dark); box-shadow: 0 0 0 6px rgba(245,130,31,0.18); }
+    .rt-dot.next   { background: var(--mid); box-shadow: 0 0 0 4px rgba(92,92,106,0.1); }
+    .rt-body { padding-top: 0.45rem; flex: 1; }
+    .rt-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: 0.3rem;
+    }
+    .rt-label.next-label { color: var(--mid); }
+    .rt-body h3 { font-size: 0.98rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
+    .rt-body p  { font-size: 0.9rem; line-height: 1.68; color: var(--mid); margin: 0; }
+
+    .recap-bottom-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto;
+    }
+    .recap-box {
+      background: var(--light); border-radius: 14px; padding: 2rem;
+    }
+    .recap-box h4 {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: 1.1rem;
+    }
+    .recap-people { display: flex; flex-direction: column; gap: 0.75rem; }
+    .recap-person { display: flex; align-items: center; gap: 0.75rem; }
+    .rp-avatar {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: var(--orange); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.02em;
+    }
+    .rp-avatar.it { background: var(--mid); }
+    .rp-name { font-size: 0.9rem; font-weight: 600; color: var(--black); line-height: 1.2; }
+    .rp-title { font-size: 0.78rem; color: var(--mid); }
+
+    .recap-risks { display: flex; flex-direction: column; gap: 0.75rem; }
+    .recap-risk {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 0.9rem 1rem; background: var(--white); border-radius: 8px;
+      border-left: 3px solid var(--orange);
+    }
+    .rr-label { font-size: 0.88rem; font-weight: 700; color: var(--black); line-height: 1.25; }
+    .rr-sub   { font-size: 0.8rem; color: var(--mid); margin-top: 0.2rem; }
+
+    @media (max-width: 860px) {
+      .recap-bottom-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── POV Section ───────────────────────────────── */
     .pov { background: var(--white); }
     .pov-grid {
@@ -467,6 +543,146 @@
         <div class="h-stat-n">4,800<em>+</em></div>
         <div class="h-stat-l">Service Bays</div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════ WHERE WE ARE ══════════════════════════════════════ -->
+<section class="section recap" id="recap">
+  <div class="container">
+
+    <div class="recap-header reveal">
+      <span class="tag">Where We Are</span>
+      <h2>A quick catch-up on our conversation so far.</h2>
+      <p>We've had several working sessions together. Here's what we've aligned on, where things stand, and what comes next — so everyone on your team is starting from the same place.</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="recap-timeline">
+
+      <div class="rt-item reveal">
+        <div class="rt-dot done">✓</div>
+        <div class="rt-body">
+          <div class="rt-label">Completed · Discovery</div>
+          <h3>Mapped your business problems to measurable outcomes</h3>
+          <p>Across multiple sessions with Amit, Steven, and Chris, we identified four core problems: customer retention dropping off after 8–12 months, low wallet share across services, marketers dependent on data science for segmentation, and no unified customer profile across 43 brands. We connected each of these to the CFO-level metrics your leadership cares about — lifetime value, repeat visits, cost per acquisition, and media ROI.</p>
+        </div>
+      </div>
+
+      <div class="rt-item reveal delay-1">
+        <div class="rt-dot done">✓</div>
+        <div class="rt-body">
+          <div class="rt-label">Completed · Business Value Session</div>
+          <h3>Built the business case — ~$4M incremental benefit at $259K investment</h3>
+          <p>Using your own numbers from the BVS, we modeled the projected impact across retention improvement, cross-sell lift, and marketing productivity. The result: approximately $4M in incremental annual benefit against a ~$259K Salesforce investment — a return that meets and exceeds Steven's requested ROI threshold. The model is built on your 1.5M customer accounts and $1B revenue base, not generic benchmarks.</p>
+        </div>
+      </div>
+
+      <div class="rt-item reveal delay-2">
+        <div class="rt-dot done">✓</div>
+        <div class="rt-body">
+          <div class="rt-label">Completed · Solution Design</div>
+          <h3>Agreed on a phased approach: Data Cloud first, Marketing Cloud second</h3>
+          <p>Based directly on Amit and Steven's feedback, we recommended starting with Data Cloud as a marketing-friendly intelligence layer on top of your existing Microsoft Fabric investment — not replacing it. Phase 1 creates unified customer profiles and marketer-accessible segmentation. Phase 2 activates Marketing Cloud Advanced, Personalization, and Loyalty. This avoids the CRM rip-and-replace conversation entirely and positions Salesforce as additive to what your team already built.</p>
+        </div>
+      </div>
+
+      <div class="rt-item reveal delay-3">
+        <div class="rt-dot active">→</div>
+        <div class="rt-body">
+          <div class="rt-label">In Progress · IT Alignment</div>
+          <h3>Working through IT's questions about Fabric vs. Salesforce</h3>
+          <p>Mike Balliet's team has built Microsoft Fabric and is rightfully protective of that investment. The conversation we're having with IT is not "replace Fabric" — it's "here's what Fabric cannot do for your marketers that Data Cloud can." The key proof point: your data scientists can aggregate data in Fabric, but marketing cannot operationalize those insights without joining the IT queue. Salesforce solves the last mile. We're currently waiting on IT roadmap confirmation to proceed.</p>
+        </div>
+      </div>
+
+      <div class="rt-item reveal delay-4">
+        <div class="rt-dot next">◦</div>
+        <div class="rt-body">
+          <div class="rt-label next-label">Next Step · Implementation</div>
+          <h3>Magna as implementation partner · 10–16 weeks to go-live</h3>
+          <p>Magna has been identified as the implementation partner and scoping has begun. Based on their estimate, a 10–16 week implementation puts a live platform well within reach of major marketing windows — Memorial Day, Independence Day, or end-of-year campaigns. Salesforce fiscal incentives also align to near-term timing. Once IT confirms their roadmap, we're ready to move.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stakeholders + Risks -->
+    <div class="recap-bottom-grid">
+
+      <div class="recap-box reveal">
+        <h4>Key People in This Deal</h4>
+        <div class="recap-people">
+          <div class="recap-person">
+            <div class="rp-avatar">AM</div>
+            <div>
+              <div class="rp-name">Amit</div>
+              <div class="rp-title">VP Market Intelligence &amp; Business Optimization · Champion</div>
+            </div>
+          </div>
+          <div class="recap-person">
+            <div class="rp-avatar">SW</div>
+            <div>
+              <div class="rp-name">Steven Webb</div>
+              <div class="rp-title">Sr. Director Advanced Analytics &amp; BI · Champion</div>
+            </div>
+          </div>
+          <div class="recap-person">
+            <div class="rp-avatar">CH</div>
+            <div>
+              <div class="rp-name">Chris Holman</div>
+              <div class="rp-title">Data Science Leader · Technical Evaluator</div>
+            </div>
+          </div>
+          <div class="recap-person">
+            <div class="rp-avatar">KE</div>
+            <div>
+              <div class="rp-name">Keegan</div>
+              <div class="rp-title">Data Analytics · Steven's Team</div>
+            </div>
+          </div>
+          <div class="recap-person">
+            <div class="rp-avatar it">MB</div>
+            <div>
+              <div class="rp-name">Mike Balliet</div>
+              <div class="rp-title">IT Director · Key Stakeholder to Align</div>
+            </div>
+          </div>
+          <div class="recap-person">
+            <div class="rp-avatar it">AK</div>
+            <div>
+              <div class="rp-name">Amy Keeler</div>
+              <div class="rp-title">Product Manager · IT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="recap-box reveal delay-2">
+        <h4>What We're Watching</h4>
+        <div class="recap-risks">
+          <div class="recap-risk">
+            <div>
+              <div class="rr-label">IT Resistance</div>
+              <div class="rr-sub">Mike's team believes Fabric already solves data unification. Our message: Fabric handles aggregation — Data Cloud handles marketer activation. These are complementary, not competing.</div>
+            </div>
+          </div>
+          <div class="recap-risk">
+            <div>
+              <div class="rr-label">Build vs. Buy Perception</div>
+              <div class="rr-sub">Fabric was recently built and the team is proud of it. Positioning must reinforce Salesforce as the last-mile layer on top of their investment, not a replacement for it.</div>
+            </div>
+          </div>
+          <div class="recap-risk">
+            <div>
+              <div class="rr-label">Timing &amp; Momentum</div>
+              <div class="rr-sub">Response cycles can be slow. The implementation window to hit major marketing campaigns is real — every week of delay compresses time to value before those windows close.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
